@@ -1,4 +1,3 @@
-// let deck = "abcdefghiabcdefghi"
 let deck = [
   "function(){}",
   "if(){}",
@@ -25,6 +24,7 @@ let deck2 = [
 ]
 var boo = new Audio("./boo.mp3")
 var win = new Audio("./Applause.mp3")
+var flipSound = new Audio("./flip-sound.mp3")
 var flips = [boo, win]
 var resetButton
 let counter //to stop the interval

@@ -102,6 +102,7 @@ function handleGame() {
 
   $("#buttons").on("click", "button", function(e) {
     e.preventDefault()
+    flipSound.play()
     if (!timerRunning) {
       timer()
     }
