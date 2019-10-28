@@ -1,4 +1,24 @@
-let deck = "abcdefghiabcdefghi"
+// let deck = "abcdefghiabcdefghi"
+let deck = [
+  "function(){}",
+  "if(){}",
+  "else{}",
+  "const",
+  "let",
+  "async",
+  "new Promise()",
+  "return",
+  "console.log()",
+  "function(){}",
+  "if(){}",
+  "else{}",
+  "const",
+  "let",
+  "async",
+  "new Promise()",
+  "return",
+  "console.log()"
+]
 let deck2 = [
   `<img src="./images/banana.jpg" width="50px" height="50px"/>`,
   `<img src="./images/banana.jpg" width="50px" height="50px"/>`

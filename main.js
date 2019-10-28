@@ -54,19 +54,19 @@ function shuffle(deck) {
 //   })
 // }
 
-function readyDeck(deck2) {
+function readyDeck(deck) {
   let buttons = ""
-  deck = shuffle(deck.split(""))
+  // deck = shuffle(deck.split(""))
 
-  deck.forEach(l => {
-    buttons += `<button class="face-down">${l.toUpperCase()}</button>`
-  })
-
-  // deck2 = shuffle(deck2)
-
-  // deck2.forEach(l => {
+  // deck.forEach(l => {
   //   buttons += `<button class="face-down">${l.toUpperCase()}</button>`
   // })
+
+  deck = shuffle(deck)
+
+  deck.forEach(l => {
+    buttons += `<button class="face-down">${l}</button>`
+  })
 
   $("#buttons").html(buttons)
 }
@@ -99,6 +99,7 @@ function timer() {
 function handleGame() {
   let arrCards = []
   // Handling cards
+
   $("#buttons").on("click", "button", function(e) {
     e.preventDefault()
     if (!timerRunning) {
@@ -160,20 +161,9 @@ function handleGame() {
   })
 }
 
-// function getTimeStr(sec) {
-//   var minutes = sec / 60
-//   var seconds = Math.floor((minutes - Math.floor(minutes)) * 60)
-//   return (
-//     "0" +
-//     Math.floor(minutes) +
-//     ":" +
-//     (seconds < 10 ? "0" + seconds.toFixed(0) : seconds.toFixed(0))
-//   )
-// }
-
 function finalscreen() {
   if (result === 9 || result === 10) {
-    outcome = "Amazing"
+    outcome = "The Best Around...."
   } else if (result === 7 || result === 8) {
     outcome = "Great Job"
   } else if (result === 5 || result === 6) {
@@ -181,35 +171,24 @@ function finalscreen() {
   } else if (result === 3 || result === 4) {
     outcome = "Pretty Bad"
   } else if (result < 3) {
-    outcome = "You Suck!"
+    outcome = "The Worst"
   }
 }
 
 function winnerScreen() {
   result = turnbonus + timerbonus
-  console.log(outcome)
-  if (result === 9 || result === 10) {
-    outcome = "Amazing"
-  } else if (result === 7 || result === 8) {
-    outcome = "Great Job"
-  } else if (result === 5 || result === 6) {
-    outcome = "Not Bad"
-  } else if (result === 3 || result === 4) {
-    outcome = "Pretty Bad"
-  } else if (result < 3) {
-    outcome = "You Suck!"
-  }
 
   finalscreen()
 
   var finalpage = `<p class="finalpage">
                    <p> It took you ${secs} seconds.</p>
-                   <p> It to you ${turn} turns </p>
-                   <p> Your outcome is: ${outcome}</p>
+                   <p> It took you ${turn} turns </p>
+                   <p> You're ${outcome}</p>
+                   <button id="reset" onClick="resetGame()">Reset</button>
   `
   $(".winnerScreen").html(finalpage)
 
-  $("#fireworks").show()
+  $("#celebrate").show()
 
   $(".winnerScreen").show()
 
@@ -235,35 +214,35 @@ function turnsScore() {
     return (turnbonus = 0)
   }
 
-  // switch (turn) {
-  //   case 16:
-  //     turnbonus = 9
-  //     break
-  //   case 17:
-  //     turnbonus = 8
-  //     break
-  //   case 18:
-  //     turnbonus = 7
-  //     break
-  //   case 19:
-  //     turnbonus = 6
-  //     break
-  //   case 20:
-  //     turnbonus = 5
-  //     break
-  //   case 21:
-  //     turnbonus = 4
-  //     break
-  //   case 22:
-  //     turnbonus = 3
-  //     break
-  //   case 23:
-  //     turnbonus = 2
-  //     break
-  //   case 24:
-  //     turnbonus = 1
-  //     break
-  // }
+  switch (turn) {
+    case 16:
+      turnbonus = 9
+      break
+    case 17:
+      turnbonus = 8
+      break
+    case 18:
+      turnbonus = 7
+      break
+    case 19:
+      turnbonus = 6
+      break
+    case 20:
+      turnbonus = 5
+      break
+    case 21:
+      turnbonus = 4
+      break
+    case 22:
+      turnbonus = 3
+      break
+    case 23:
+      turnbonus = 2
+      break
+    case 24:
+      turnbonus = 1
+      break
+  }
 
   console.log(turnbonus)
 }
@@ -281,60 +260,6 @@ function timerscore() {
     return (timerbonus = 0)
   }
 }
-
-// function turnsScore(tu) {
-//   switch (tu) {
-//     case 15:
-//       turnbonus = 10
-//       break
-//     case 15:
-//       turnbonus = 10
-//       break
-//     case 16:
-//       turnbonus = 9
-//       break
-//     case 17:
-//       turnbonus = 8
-//       break
-//     case 18:
-//       turnbonus = 7
-//       break
-//     case 19:
-//       turnbonus = 6
-//       break
-//     case 20:
-//       turnbonus = 5
-//       break
-//     case 21:
-//       turnbonus = 4
-//       break
-//     case 22:
-//       turnbonus = 3
-//       break
-//     case 23:
-//       turnbonus = 2
-//       break
-//     case 24:
-//       turnbonus = 1
-//       break
-//     default:
-//       turnbonus = 0
-//       break
-//   }
-// }
-
-// function timerscore() {
-//   let howmanysecs = sec
-
-// if (howmanysecs < 60) {
-//   timerbonus = 3
-// } else if (howmanysecs >= 60 && howmanysecs < 120) {
-//   timerbonus = 2
-// } else if (howmanysecs >= 120 && howmanysecs < 180) {
-//   timerbonus = 1
-// } else {
-//   timerbonus = 0
-// }
 
 $(document).ready(function() {
   readyDeck(deck)

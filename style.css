@@ -19,24 +19,39 @@ html {
 }
 
 #buttons button {
-  width: 150px;
-  height: 150px;
-  margin: 2px;
-  font-size: 2rem;
-  /* background: black; */
+  width: 170px;
+  height: 170px;
+  margin: 5px;
+  font-size: 1.5rem;
+  outline-color: orangered;
 }
 
 .face-down {
-  background: black;
+  background-image: url("./images/vault-symbol.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: transparent;
+  transform: rotateY(0deg);
 }
 
 .face-up {
-  background: white;
+  background: rgb(69, 57, 130);
+  color: orangered;
+  text-shadow: 2px 2px rgba(225, 153, 20, 0.577);
+  font-size: 3rem;
+  transform: rotateY(360deg);
+  transition: ease-in-out 0.9s;
+  transform-style: preserve-3d;
 }
 
 #reset {
   width: 50px;
   height: 30px;
+  border: red 1px solid;
+  background: orange;
+  color: white;
+  cursor: pointer;
 }
 
 div.scorepanel ul {
@@ -45,40 +60,39 @@ div.scorepanel ul {
   display: flex;
   list-style: none;
 }
-/* div.scorepanel ul>li{ */
-/* } */
 
 .winnerScreen {
   width: 55%;
-  height: 250px;
+  height: 300px;
   margin: auto;
-  background-color: white;
+  text-align: center;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.406);
+  font-size: 2rem;
   display: none;
   border: 1px solid green;
   position: absolute;
   top: 0;
-  left: 100px;
+  left: 214px;
 }
 .scorepanel {
   display: flex;
   justify-content: space-evenly;
-  /* list-style: none; */
 }
 .outcome {
   color: black;
 }
 
-#fireworks {
+#celebrate {
   width: 900px;
   height: 800px;
-  /* background-image:url(); */
   display: none;
   top: 0;
+  right: 265px;
   position: absolute;
-  border: 1px solid pink;
 }
 
-#fireworks img {
+#celebrate img {
   width: 900px;
   height: auto;
 }
