@@ -182,7 +182,6 @@ function winnerScreen() {
   finalscreen()
 
   var finalpage = `<p class="finalpage">
-                   <p> It took you ${secs} seconds.</p>
                    <p> It took you ${turn} turns </p>
                    <p> You're ${outcome}</p>
                    <button id="reset" onClick="resetGame()">Reset</button>
